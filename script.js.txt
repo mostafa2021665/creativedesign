@@ -1,0 +1,47 @@
+function handleFiles(files) {
+    const gallery = document.getElementById('gallery');
+    for (let file of files) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            const imageCard = document.createElement('div');
+            imageCard.className = 'image-card';
+
+            const img = document.createElement('img');
+            img.src = e.target.result;
+
+            const reactions = document.createElement('div');
+            reactions.className = 'reactions';
+            const emojis = ['👍', '❤️', '😂', '😮', '😢', '😡'];
+            emojis.forEach(emoji => {
+                const span = document.createElement('span');
+                span.textContent = emoji;
+                span.onclick = () => alert(`You reacted with ${emoji}`);
+                reactions.appendChild(span);
+            });
+
+            const comments = document.createElement('div');
+            comments.className = 'comments';
+
+            const commentInput = document.createElement('input');
+            commentInput.className = 'comment-input';
+            commentInput.placeholder = 'أضف تعليق...';
+            commentInput.onkeypress = (event) => {
+                if (event.key === 'Enter') {
+                    const comment = document.createElement('div');
+                    comment.className = 'comment';
+                    comment.textContent = event.target.value;
+                    comments.appendChild(comment);
+                    event.target.value = '';
+                }
+            };
+
+            imageCard.appendChild(img);
+            imageCard.appendChild(reactions);
+            imageCard.appendChild(comments);
+            imageCard.appendChild(commentInput);
+
+            gallery.appendChild(imageCard);
+        };
+        reader.readAsDataURL(file);
+    }
+}

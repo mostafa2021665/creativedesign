@@ -1,0 +1,71 @@
+body {
+    font-family: Arial, sans-serif;
+    direction: rtl;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+.gallery-container {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+#gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.image-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    text-align: center;
+}
+
+.image-card img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.reactions {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.reactions span {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.comments {
+    margin-top: 10px;
+}
+
+.comment {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.comment-input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
